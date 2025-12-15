@@ -1,4 +1,4 @@
-package no.fintlabs.instance.gateway.models;
+package no.novari.hmsreg.gateway.models;
 
 import lombok.Builder;
 import lombok.EqualsAndHashCode;

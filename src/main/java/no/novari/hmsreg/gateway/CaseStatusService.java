@@ -1,8 +1,8 @@
-package no.fintlabs.instance.gateway;
+package no.novari.hmsreg.gateway;
 
-import no.fintlabs.gateway.instance.kafka.ArchiveCaseIdRequestService;
-import no.fintlabs.instance.gateway.models.CaseStatus;
-import no.fintlabs.resourceserver.security.client.sourceapplication.SourceApplicationAuthorizationService;
+import no.novari.flyt.instance.gateway.kafka.ArchiveCaseIdRequestService;
+import no.novari.flyt.resourceserver.security.client.sourceapplication.SourceApplicationAuthorizationService;
+import no.novari.hmsreg.gateway.models.CaseStatus;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 

@@ -1,10 +1,10 @@
-package no.fintlabs.instance.gateway.mapping;
+package no.novari.hmsreg.gateway.mapping;
 
-import no.fintlabs.gateway.instance.InstanceMapper;
-import no.fintlabs.gateway.instance.model.File;
-import no.fintlabs.gateway.instance.model.instance.InstanceObject;
-import no.fintlabs.instance.gateway.models.CaseInstance;
-import no.fintlabs.instance.gateway.models.Document;
+import no.novari.hmsreg.gateway.models.CaseInstance;
+import no.novari.hmsreg.gateway.models.Document;
+import no.novari.flyt.instance.gateway.InstanceMapper;
+import no.novari.flyt.instance.gateway.model.File;
+import no.novari.flyt.instance.gateway.model.InstanceObject;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;

@@ -1,6 +1,6 @@
-package no.fintlabs.instance.gateway;
+package no.novari.hmsreg.gateway;
 
-import no.fintlabs.instance.gateway.models.Document;
+import no.novari.hmsreg.gateway.models.Document;
 import org.springframework.http.MediaType;
 
 import java.util.List;

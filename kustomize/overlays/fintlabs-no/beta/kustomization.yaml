@@ -7,7 +7,7 @@ resources:
 
 labels:
   - pairs:
-      app.kubernetes.io/instance: fint-flyt-hmsreg-instance-gateway_fintlabs_no
+      app.kubernetes.io/instance: fint-flyt-hmsreg-gateway_fintlabs_no
       fintlabs.no/org-id: fintlabs.no
 
 patches:
@@ -30,7 +30,12 @@ patches:
       - op: replace
         path: "/spec/observability/metrics/path"
         value: "/beta/fintlabs-no/actuator/prometheus"
+      - op: add
+        path: "/spec/env/-"
+        value:
+          name: novari.kafka.topic.org-id
+          value: "fintlabs-no"
     target:
       kind: Application
-      name: fint-flyt-hmsreg-instance-gateway
+      name: fint-flyt-hmsreg-gateway
 

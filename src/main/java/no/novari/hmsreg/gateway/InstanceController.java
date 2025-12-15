@@ -1,8 +1,8 @@
-package no.fintlabs.instance.gateway;
+package no.novari.hmsreg.gateway;
 
-import no.fintlabs.gateway.instance.InstanceProcessor;
-import no.fintlabs.instance.gateway.models.CaseInstance;
-import no.fintlabs.instance.gateway.models.CaseStatus;
+import no.novari.flyt.instance.gateway.InstanceProcessor;
+import no.novari.hmsreg.gateway.models.CaseInstance;
+import no.novari.hmsreg.gateway.models.CaseStatus;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import reactor.core.publisher.Mono;
 
-import static no.fintlabs.resourceserver.UrlPaths.EXTERNAL_API;
+import static no.novari.flyt.resourceserver.UrlPaths.EXTERNAL_API;
 
 @RestController
 @RequestMapping(EXTERNAL_API + "/hmsreg/instances/sak")

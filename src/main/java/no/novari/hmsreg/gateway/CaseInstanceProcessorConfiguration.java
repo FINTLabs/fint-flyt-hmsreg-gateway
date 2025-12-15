@@ -1,9 +1,9 @@
-package no.fintlabs.instance.gateway;
+package no.novari.hmsreg.gateway;
 
-import no.fintlabs.gateway.instance.InstanceProcessor;
-import no.fintlabs.gateway.instance.InstanceProcessorFactoryService;
-import no.fintlabs.instance.gateway.mapping.CaseInstanceMappingService;
-import no.fintlabs.instance.gateway.models.CaseInstance;
+import no.novari.flyt.instance.gateway.InstanceProcessor;
+import no.novari.flyt.instance.gateway.InstanceProcessorFactoryService;
+import no.novari.hmsreg.gateway.mapping.CaseInstanceMappingService;
+import no.novari.hmsreg.gateway.models.CaseInstance;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

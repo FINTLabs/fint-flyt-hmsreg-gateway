@@ -1,4 +1,4 @@
-package no.fintlabs.instance.gateway.models;
+package no.novari.hmsreg.gateway.models;
 
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
@@ -6,8 +6,8 @@ import lombok.Getter;
 import lombok.extern.jackson.Jacksonized;
 import org.springframework.http.MediaType;
 
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 
 @Getter
 @Jacksonized

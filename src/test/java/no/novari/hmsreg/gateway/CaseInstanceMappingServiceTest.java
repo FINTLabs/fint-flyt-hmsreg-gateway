@@ -1,9 +1,9 @@
-package no.fintlabs.instance.gateway;
+package no.novari.hmsreg.gateway;
 
-import no.fintlabs.gateway.instance.model.File;
-import no.fintlabs.gateway.instance.model.instance.InstanceObject;
-import no.fintlabs.instance.gateway.mapping.CaseInstanceMappingService;
-import no.fintlabs.instance.gateway.models.CaseInstance;
+import no.novari.flyt.instance.gateway.model.File;
+import no.novari.flyt.instance.gateway.model.InstanceObject;
+import no.novari.hmsreg.gateway.mapping.CaseInstanceMappingService;
+import no.novari.hmsreg.gateway.models.CaseInstance;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentMatcher;

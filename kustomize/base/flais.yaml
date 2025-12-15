@@ -1,11 +1,11 @@
 apiVersion: fintlabs.no/v1alpha1
 kind: Application
 metadata:
-  name: fint-flyt-hmsreg-instance-gateway
+  name: fint-flyt-hmsreg-gateway
   namespace: fintlabs-no
   labels:
-    app.kubernetes.io/name: fint-flyt-hmsreg-instance-gateway
-    app.kubernetes.io/instance: fint-flyt-hmsreg-instance-gateway_fintlabs_no
+    app.kubernetes.io/name: fint-flyt-hmsreg-gateway
+    app.kubernetes.io/instance: fint-flyt-hmsreg-gateway_fintlabs_no
     app.kubernetes.io/version: latest
     app.kubernetes.io/component: backend
     app.kubernetes.io/part-of: fint-flyt
@@ -15,7 +15,7 @@ spec:
   port: 8080
   imagePullPolicy: Always
   orgId: fintlabs.no
-  image: ghcr.io/fintlabs/fint-flyt-hmsreg-instance-gateway:sha-0000000
+  image: ghcr.io/fintlabs/fint-flyt-hmsreg-gateway:sha-0000000
   kafka:
     enabled: true
     acls:
@@ -30,10 +30,6 @@ spec:
   env:
     - name: JAVA_TOOL_OPTIONS
       value: '-XX:+ExitOnOutOfMemoryError -Xmx1840M'
-    - name: fint.flyt.resource-server.security.api.external.enabled
-      value: "true"
-    - name: fint.flyt.resource-server.security.api.external.authorized-client-ids
-      value: "6"
   envFrom:
     - secretRef:
         name: fint-flyt-file-oauth2-client
