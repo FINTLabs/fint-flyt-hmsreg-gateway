@@ -25,8 +25,14 @@ patches:
         path: "/spec/ingress/basePath"
         value: "/nfk-no/api/hmsreg/instances/sak"
       - op: replace
-        path: "/spec/probes/readiness/path"
+        path: "/spec/probes/startup/path"
         value: "/nfk-no/actuator/health"
+      - op: replace
+        path: "/spec/probes/readiness/path"
+        value: "/nfk-no/actuator/health/readiness"
+      - op: replace
+        path: "/spec/probes/liveness/path"
+        value: "/nfk-no/actuator/health/liveness"
       - op: replace
         path: "/spec/observability/metrics/path"
         value: "/nfk-no/actuator/prometheus"
