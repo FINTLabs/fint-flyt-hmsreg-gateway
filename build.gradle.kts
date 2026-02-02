@@ -37,7 +37,7 @@ dependencies {
     implementation("io.netty:netty-resolver-dns-native-macos:4.1.115.Final:osx-aarch_64")
 
     implementation("no.novari:flyt-kafka:4.0.0")
-    implementation("no.novari:flyt-instance-gateway:7.1.0")
+    implementation("no.novari:flyt-instance-gateway:7.1.1")
     implementation("no.novari:flyt-resource-server:6.0.0")
 
     compileOnly("org.projectlombok:lombok")
