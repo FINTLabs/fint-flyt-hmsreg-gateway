@@ -41,7 +41,11 @@ patches:
         value:
           name: novari.kafka.topic.org-id
           value: "bfk-no"
+      - op: add
+        path: "/spec/env/-"
+        value:
+          name: "server.servlet.context-path"
+          value: "/beta/bfk-no"
     target:
       kind: Application
       name: fint-flyt-hmsreg-gateway
-
