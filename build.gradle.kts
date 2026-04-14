@@ -1,54 +1,60 @@
 plugins {
-    id("org.springframework.boot") version "3.5.8"
+    id("org.springframework.boot") version "3.5.13"
     id("io.spring.dependency-management") version "1.1.7"
-    id("java")
-    id("com.github.ben-manes.versions") version "0.52.0"
+    id("com.github.ben-manes.versions") version "0.53.0"
+    id("org.jlleitschuh.gradle.ktlint") version "13.1.0"
+    kotlin("jvm") version "2.3.10"
+    kotlin("plugin.spring") version "2.3.10"
 }
 
 group = "no.fintlabs"
 version = "0.0.1-SNAPSHOT"
 
-java {
-    toolchain {
-        languageVersion.set(JavaLanguageVersion.of(21))
-    }
-}
-
-configurations {
-    compileOnly {
-        extendsFrom(configurations.annotationProcessor.get())
+kotlin {
+    jvmToolchain(25)
+    compilerOptions {
+        freeCompilerArgs.add("-Xjsr305=strict")
     }
 }
 
 repositories {
     mavenCentral()
-    maven {
-        url = uri("https://repo.fintlabs.no/releases")
-    }
+    maven("https://repo.fintlabs.no/releases")
     mavenLocal()
+}
+
+tasks.jar {
+    isEnabled = false
 }
 
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-actuator")
-    implementation("org.springframework.boot:spring-boot-starter-webflux")
-    implementation("org.springframework.boot:spring-boot-starter-oauth2-resource-server")
+    implementation("org.springframework.boot:spring-boot-starter-aop")
     implementation("org.springframework.boot:spring-boot-starter-validation")
+    implementation("org.springframework.boot:spring-boot-starter-web")
+    compileOnly("org.springframework.security:spring-security-config")
+    compileOnly("org.springframework.security:spring-security-web")
+    implementation("org.jetbrains.kotlin:kotlin-reflect")
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 
-    implementation("io.netty:netty-resolver-dns-native-macos:4.1.115.Final:osx-aarch_64")
+    implementation("no.novari:flyt-web-instance-gateway:2.0.0")
 
-    implementation("no.novari:flyt-kafka:4.0.0")
-    implementation("no.novari:flyt-instance-gateway:7.1.1")
-    implementation("no.novari:flyt-resource-server:6.0.0")
-
-    compileOnly("org.projectlombok:lombok")
-    annotationProcessor("org.projectlombok:lombok")
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
 
     runtimeOnly("io.micrometer:micrometer-registry-prometheus")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
+    testImplementation("org.springframework.security:spring-security-core")
 }
 
 tasks.test {
     useJUnitPlatform()
+}
+
+ktlint {
+    version.set("1.8.0")
+}
+
+tasks.named("check") {
+    dependsOn("ktlintCheck")
 }
