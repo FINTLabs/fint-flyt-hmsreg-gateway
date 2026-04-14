@@ -7,6 +7,7 @@ import no.novari.hmsreg.gateway.models.CaseInstance
 import no.novari.hmsreg.gateway.models.Document
 import org.springframework.stereotype.Service
 import java.time.format.DateTimeFormatter
+import java.util.Locale
 import java.util.UUID
 
 @Service
@@ -55,7 +56,7 @@ class CaseInstanceMappingService : InstanceMapper<CaseInstance> {
             "prosjektNavn" to projectName,
             "hovedLeverandor" to mainSupplier,
             "behandlet" to processed.format(PROCESSED_DATE_TIME_FORMATTER),
-            "behandletEpost" to processedByEmail,
+            "behandletEpost" to processedByEmail.lowercase(Locale.ROOT),
             "status" to status,
             "type" to type,
             "template" to template,

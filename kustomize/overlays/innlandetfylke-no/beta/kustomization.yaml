@@ -18,9 +18,6 @@ patches:
       - op: replace
         path: "/spec/orgId"
         value: "innlandetfylke.no"
-      - op: add
-        path: "/spec/url/basePath"
-        value: "/beta/innlandetfylke-no"
       - op: replace
         path: "/spec/ingress/basePath"
         value: "/beta/innlandetfylke-no/api/hmsreg/instances/sak"

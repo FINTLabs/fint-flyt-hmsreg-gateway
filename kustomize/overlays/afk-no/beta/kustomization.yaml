@@ -18,9 +18,6 @@ patches:
       - op: replace
         path: "/spec/orgId"
         value: "afk.no"
-      - op: add
-        path: "/spec/url/basePath"
-        value: "/beta/afk-no"
       - op: replace
         path: "/spec/ingress/basePath"
         value: "/beta/afk-no/api/hmsreg/instances/sak"
