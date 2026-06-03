@@ -1,6 +1,11 @@
 fint:
   application-id: fint-flyt-hmsreg-gateway
 
+novari:
+  flyt:
+    web-instance-gateway:
+      max-request-size: 500MB
+
 logging:
   level:
     no.fintlabs.cache.ehcache.FintEhCacheEventLogger: WARN
