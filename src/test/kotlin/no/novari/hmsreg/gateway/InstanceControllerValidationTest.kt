@@ -46,14 +46,21 @@ class InstanceControllerValidationTest {
             .build()
 
     @Test
-    fun `given processed without fractional seconds should deserialize`() {
-        val caseInstance =
-            objectMapper.readValue(
-                validRequestBody(processed = "2026-06-03T10:13:15"),
-                CaseInstance::class.java,
-            )
+    fun `given processed with allowed date formats should deserialize`() {
+        listOf(
+            "2026-06-03T10:13:15.0000000",
+            "2026-06-03T10:13:15",
+            "2026-06-03 10:13:15.0000000",
+            "2026-06-03 10:13:15",
+        ).forEach { processed ->
+            val caseInstance =
+                objectMapper.readValue(
+                    validRequestBody(processed = processed),
+                    CaseInstance::class.java,
+                )
 
-        assertThat(caseInstance.processed).isEqualTo(LocalDateTime.parse("2026-06-03T10:13:15"))
+            assertThat(caseInstance.processed).isEqualTo(LocalDateTime.parse("2026-06-03T10:13:15"))
+        }
     }
 
     @Test
@@ -62,7 +69,7 @@ class InstanceControllerValidationTest {
             .perform(
                 post("/api/hmsreg/instances/sak")
                     .contentType(MediaType.APPLICATION_JSON)
-                    .content(validRequestBody(processed = "2026-06-03 10:13:15")),
+                    .content(validRequestBody(processed = "2026/06/03 10:13:15")),
             ).andExpect(status().isBadRequest)
             .andExpect(jsonPath("$.fieldErrors[0].field").value("processed"))
             .andExpect(
@@ -70,7 +77,7 @@ class InstanceControllerValidationTest {
                     .value(containsString(CaseInstance.PROCESSED_DATE_TIME_PATTERN_WITH_FRACTION)),
             ).andExpect(
                 jsonPath("$.fieldErrors[0].message")
-                    .value(containsString(CaseInstance.PROCESSED_DATE_TIME_PATTERN_WITHOUT_FRACTION)),
+                    .value(containsString(CaseInstance.PROCESSED_DATE_TIME_PATTERN_WITH_SPACE)),
             )
     }
 
