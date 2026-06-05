@@ -1,5 +1,6 @@
 package no.novari.hmsreg.gateway
 
+import jakarta.validation.Valid
 import no.novari.flyt.gateway.webinstance.InstanceProcessor
 import no.novari.flyt.webresourceserver.UrlPaths.EXTERNAL_API
 import no.novari.hmsreg.gateway.models.CaseInstance
@@ -36,6 +37,7 @@ class InstanceController(
 
     @PostMapping
     fun postIncomingInstanceWithCollectionElements(
+        @Valid
         @RequestBody caseInstance: CaseInstance,
         authentication: Authentication,
     ): ResponseEntity<Void> = caseInstanceProcessor.processInstance(authentication, caseInstance)

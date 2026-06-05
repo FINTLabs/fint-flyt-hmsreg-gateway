@@ -1,6 +1,6 @@
 package no.novari.hmsreg.gateway.models
 
-import com.fasterxml.jackson.annotation.JsonFormat
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize
 import jakarta.validation.Valid
 import jakarta.validation.constraints.NotBlank
 import jakarta.validation.constraints.NotEmpty
@@ -13,7 +13,7 @@ data class CaseInstance(
     @field:NotBlank val organizationNumber: String,
     @field:NotBlank val projectName: String,
     @field:NotBlank val mainSupplier: String,
-    @field:JsonFormat(shape = JsonFormat.Shape.STRING, pattern = PROCESSED_DATE_TIME_PATTERN)
+    @field:JsonDeserialize(using = ProcessedDateTimeDeserializer::class)
     val processed: LocalDateTime,
     @field:NotBlank val processedByEmail: String,
     @field:NotBlank val status: String,
@@ -29,6 +29,10 @@ data class CaseInstance(
     val documents: List<@Valid Document>,
 ) {
     companion object {
-        const val PROCESSED_DATE_TIME_PATTERN = "yyyy-MM-dd'T'HH:mm:ss.SSSSSSS"
+        const val PROCESSED_DATE_TIME_PATTERN_WITH_FRACTION = "yyyy-MM-dd'T'HH:mm:ss.SSSSSSS"
+        const val PROCESSED_DATE_TIME_PATTERN_WITHOUT_FRACTION = "yyyy-MM-dd'T'HH:mm:ss"
+        const val PROCESSED_DATE_TIME_PATTERN_WITH_SPACE_AND_FRACTION = "yyyy-MM-dd HH:mm:ss.SSSSSSS"
+        const val PROCESSED_DATE_TIME_PATTERN_WITH_SPACE = "yyyy-MM-dd HH:mm:ss"
+        const val PROCESSED_DATE_TIME_OUTPUT_PATTERN = PROCESSED_DATE_TIME_PATTERN_WITHOUT_FRACTION
     }
 }
