@@ -92,7 +92,7 @@ class CaseInstanceMappingServiceTest {
                     "organisasjonsNummer" to "testOrgNr",
                     "prosjektNavn" to "testProsjektNavn",
                     "hovedLeverandor" to "testHovedleverandør",
-                    "behandlet" to "2024-09-04T08:39:43.0200000",
+                    "behandlet" to "2024-09-04T08:39:43",
                     "behandletEpost" to "test.epost@test.com",
                     "status" to "testStatus",
                     "type" to "testType",

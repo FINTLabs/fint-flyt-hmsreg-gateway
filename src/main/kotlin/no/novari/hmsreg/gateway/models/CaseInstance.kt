@@ -29,6 +29,9 @@ data class CaseInstance(
     val documents: List<@Valid Document>,
 ) {
     companion object {
-        const val PROCESSED_DATE_TIME_PATTERN = "yyyy-MM-dd'T'HH:mm:ss.SSSSSSS"
+        const val PROCESSED_DATE_TIME_PATTERN_WITH_FRACTION = "yyyy-MM-dd'T'HH:mm:ss.SSSSSSS"
+        const val PROCESSED_DATE_TIME_PATTERN_WITHOUT_FRACTION = "yyyy-MM-dd'T'HH:mm:ss"
+        const val PROCESSED_DATE_TIME_PATTERN = "$PROCESSED_DATE_TIME_PATTERN_WITHOUT_FRACTION[.SSSSSSS]"
+        const val PROCESSED_DATE_TIME_OUTPUT_PATTERN = PROCESSED_DATE_TIME_PATTERN_WITHOUT_FRACTION
     }
 }

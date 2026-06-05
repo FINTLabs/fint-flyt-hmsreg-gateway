@@ -138,8 +138,9 @@ class ApiExceptionHandler {
                 when (exception.targetType) {
                     LocalDateTime::class.java -> {
                         "Ugyldig datoformat. Forventet format er " +
-                            "${CaseInstance.PROCESSED_DATE_TIME_PATTERN}, for eksempel " +
-                            "2026-06-03T10:13:15.0000000."
+                            "${CaseInstance.PROCESSED_DATE_TIME_PATTERN_WITH_FRACTION} eller " +
+                            "${CaseInstance.PROCESSED_DATE_TIME_PATTERN_WITHOUT_FRACTION}, for eksempel " +
+                            "2026-06-03T10:13:15.0000000 eller 2026-06-03T10:13:15."
                     }
 
                     MediaType::class.java -> {

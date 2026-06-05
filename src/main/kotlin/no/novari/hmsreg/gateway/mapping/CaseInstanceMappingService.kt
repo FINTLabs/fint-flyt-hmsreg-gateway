@@ -134,6 +134,7 @@ class CaseInstanceMappingService : InstanceMapper<CaseInstance> {
     }
 
     companion object {
-        private val PROCESSED_DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSSSSS")
+        private val PROCESSED_DATE_TIME_FORMATTER =
+            DateTimeFormatter.ofPattern(CaseInstance.PROCESSED_DATE_TIME_OUTPUT_PATTERN)
     }
 }

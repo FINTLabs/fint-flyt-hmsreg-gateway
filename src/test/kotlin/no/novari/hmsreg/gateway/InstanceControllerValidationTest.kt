@@ -6,6 +6,7 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
 import com.fasterxml.jackson.module.kotlin.KotlinModule
 import no.novari.flyt.gateway.webinstance.InstanceProcessor
 import no.novari.hmsreg.gateway.models.CaseInstance
+import org.assertj.core.api.Assertions.assertThat
 import org.hamcrest.Matchers.containsString
 import org.junit.jupiter.api.Test
 import org.mockito.Mockito.mock
@@ -16,6 +17,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPat
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
 import org.springframework.test.web.servlet.setup.MockMvcBuilders
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean
+import java.time.LocalDateTime
 
 class InstanceControllerValidationTest {
     private val validator =
@@ -44,17 +46,31 @@ class InstanceControllerValidationTest {
             .build()
 
     @Test
+    fun `given processed without fractional seconds should deserialize`() {
+        val caseInstance =
+            objectMapper.readValue(
+                validRequestBody(processed = "2026-06-03T10:13:15"),
+                CaseInstance::class.java,
+            )
+
+        assertThat(caseInstance.processed).isEqualTo(LocalDateTime.parse("2026-06-03T10:13:15"))
+    }
+
+    @Test
     fun `given processed with wrong date format should return field error`() {
         mockMvc
             .perform(
                 post("/api/hmsreg/instances/sak")
                     .contentType(MediaType.APPLICATION_JSON)
-                    .content(validRequestBody(processed = "2026-06-03T10:13:15")),
+                    .content(validRequestBody(processed = "2026-06-03 10:13:15")),
             ).andExpect(status().isBadRequest)
             .andExpect(jsonPath("$.fieldErrors[0].field").value("processed"))
             .andExpect(
                 jsonPath("$.fieldErrors[0].message")
-                    .value(containsString(CaseInstance.PROCESSED_DATE_TIME_PATTERN)),
+                    .value(containsString(CaseInstance.PROCESSED_DATE_TIME_PATTERN_WITH_FRACTION)),
+            ).andExpect(
+                jsonPath("$.fieldErrors[0].message")
+                    .value(containsString(CaseInstance.PROCESSED_DATE_TIME_PATTERN_WITHOUT_FRACTION)),
             )
     }
 
