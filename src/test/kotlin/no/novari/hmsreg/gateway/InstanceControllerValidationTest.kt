@@ -93,9 +93,21 @@ class InstanceControllerValidationTest {
             .andExpect(jsonPath("$.fieldErrors[0].message").value("Feltet er påkrevd og kan ikke være tomt."))
     }
 
+    @Test
+    fun `given blank deviationCodeFU should pass validation`() {
+        val caseInstance =
+            objectMapper.readValue(
+                validRequestBody(deviationCodeFU = ""),
+                CaseInstance::class.java,
+            )
+
+        assertThat(validator.validate(caseInstance)).isEmpty()
+    }
+
     private fun validRequestBody(
         processed: String = "2026-06-03T10:13:15.0000000",
         documentBase64: String = "SG92ZWRkb2t1bWVudA==",
+        deviationCodeFU: String = "Ikke relevant",
     ): String =
         """
         {
@@ -110,7 +122,7 @@ class InstanceControllerValidationTest {
           "type": "Innregistrering",
           "template": "Ikke relevant",
           "deviationCode": "Ikke relevant",
-          "deviationCodeFU": "Ikke relevant",
+          "deviationCodeFU": "$deviationCodeFU",
           "projectId": "TEST-1",
           "department": "Testavdeling",
           "documents": [

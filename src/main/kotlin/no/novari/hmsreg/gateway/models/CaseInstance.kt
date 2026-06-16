@@ -20,7 +20,7 @@ data class CaseInstance(
     @field:NotBlank val type: String,
     @field:NotBlank val template: String,
     @field:NotBlank val deviationCode: String,
-    @field:NotBlank val deviationCodeFU: String,
+    val deviationCodeFU: String,
     @field:NotBlank val projectId: String,
     @field:NotBlank val department: String,
     @field:Valid
