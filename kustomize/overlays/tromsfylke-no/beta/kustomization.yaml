@@ -43,6 +43,11 @@ patches:
         value:
           name: "server.servlet.context-path"
           value: "/beta/tromsfylke-no"
+      - op: add
+        path: "/spec/env/-"
+        value:
+          name: "logging.level.no.novari.flyt.gateway.webinstance"
+          value: "DEBUG"
     target:
       kind: Application
       name: fint-flyt-hmsreg-gateway
