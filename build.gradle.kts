@@ -37,7 +37,7 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 
-    implementation("no.novari:flyt-web-instance-gateway:3.0.0-rc-3")
+    implementation("no.novari:flyt-web-instance-gateway:3.0.0")
 
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
 
