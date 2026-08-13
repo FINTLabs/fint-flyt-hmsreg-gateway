@@ -43,6 +43,7 @@ dependencies {
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
 
     runtimeOnly("io.micrometer:micrometer-registry-prometheus")
+    runtimeOnly("net.logstash.logback:logstash-logback-encoder:9.0")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.springframework.security:spring-security-core")
