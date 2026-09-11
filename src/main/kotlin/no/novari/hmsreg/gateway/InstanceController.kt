@@ -1,7 +1,7 @@
 package no.novari.hmsreg.gateway
 
 import jakarta.validation.Valid
-import no.novari.flyt.gateway.webinstance.InstanceProcessor
+import no.novari.flyt.gateway.instance.InstanceProcessor
 import no.novari.flyt.webresourceserver.UrlPaths.EXTERNAL_API
 import no.novari.hmsreg.gateway.models.CaseInstance
 import no.novari.hmsreg.gateway.models.CaseStatus

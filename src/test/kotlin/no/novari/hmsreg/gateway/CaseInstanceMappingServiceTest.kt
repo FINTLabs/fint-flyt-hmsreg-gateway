@@ -1,7 +1,7 @@
 package no.novari.hmsreg.gateway
 
-import no.novari.flyt.gateway.webinstance.model.File
-import no.novari.flyt.gateway.webinstance.model.instance.InstanceObject
+import no.novari.flyt.gateway.instance.model.File
+import no.novari.flyt.gateway.instance.model.instance.InstanceObject
 import no.novari.hmsreg.gateway.mapping.CaseInstanceMappingService
 import no.novari.hmsreg.gateway.models.CaseInstance
 import org.assertj.core.api.Assertions.assertThat

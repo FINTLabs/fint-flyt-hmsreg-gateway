@@ -46,7 +46,7 @@ patches:
       - op: add
         path: "/spec/env/-"
         value:
-          name: "logging.level.no.novari.flyt.gateway.webinstance"
+          name: "logging.level.no.novari.flyt.gateway.instance"
           value: "DEBUG"
       - op: add
         path: "/spec/env/-"

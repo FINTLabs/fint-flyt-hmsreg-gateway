@@ -1,6 +1,6 @@
 package no.novari.hmsreg.gateway
 
-import no.novari.flyt.gateway.webinstance.kafka.ArchiveCaseIdRequestService
+import no.novari.flyt.gateway.instance.kafka.ArchiveCaseIdRequestService
 import no.novari.flyt.webresourceserver.security.client.sourceapplication.SourceApplicationAuthorizationService
 import no.novari.hmsreg.gateway.models.CaseStatus
 import org.springframework.security.core.Authentication

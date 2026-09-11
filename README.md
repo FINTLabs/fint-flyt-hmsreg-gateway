@@ -8,7 +8,7 @@ Spring Boot service for receiving HMSREG case instances over HTTP, persisting at
 - Java 25
 - Spring Boot 3.5.x
 - Spring MVC (`spring-boot-starter-web`)
-- `flyt-web-instance-gateway`
+- `flyt-gateway-starter`
 - `flyt-web-resource-server`
 - `ktlint`
 
@@ -21,7 +21,7 @@ The application includes these Spring profiles by default:
 - `flyt-web-resource-server`
 - `flyt-file-client`
 
-Local development can use `local-staging`, which points Kafka to `localhost:9092`, file service to `http://localhost:8091`, and disables integration existence checks in the shared web instance gateway.
+Local development can use `local-staging`, which points Kafka to `localhost:9092`, file service to `http://localhost:8091`, and disables integration existence checks in the shared gateway starter.
 
 ## Build And Run
 
