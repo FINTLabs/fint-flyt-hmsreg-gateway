@@ -41,6 +41,11 @@ patches:
       - op: add
         path: "/spec/env/-"
         value:
+          name: "novari.telemetry.org-id"
+          value: "tromsfylke.no"
+      - op: add
+        path: "/spec/env/-"
+        value:
           name: "server.servlet.context-path"
           value: "/beta/tromsfylke-no"
       - op: add
@@ -48,6 +53,11 @@ patches:
         value:
           name: "logging.level.no.novari.flyt.gateway.webinstance"
           value: "DEBUG"
+      - op: add
+        path: "/spec/env/-"
+        value:
+          name: "OTEL_EXPORTER_OTLP_ENDPOINT"
+          value: "http://alloy.flais-system.svc.cluster.local:4318"
     target:
       kind: Application
       name: fint-flyt-hmsreg-gateway
