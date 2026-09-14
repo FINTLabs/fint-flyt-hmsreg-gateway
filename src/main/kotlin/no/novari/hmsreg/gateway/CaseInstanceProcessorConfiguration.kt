@@ -1,7 +1,7 @@
 package no.novari.hmsreg.gateway
 
-import no.novari.flyt.gateway.webinstance.InstanceProcessor
-import no.novari.flyt.gateway.webinstance.InstanceProcessorFactoryService
+import no.novari.flyt.gateway.instance.InstanceProcessor
+import no.novari.flyt.gateway.instance.InstanceProcessorFactoryService
 import no.novari.hmsreg.gateway.mapping.CaseInstanceMappingService
 import no.novari.hmsreg.gateway.models.CaseInstance
 import org.springframework.context.annotation.Bean
