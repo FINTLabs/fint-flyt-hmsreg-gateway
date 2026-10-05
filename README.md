@@ -21,7 +21,7 @@ The application includes these Spring profiles by default:
 - `flyt-web-resource-server`
 - `flyt-file-client`
 
-Local development can use `local-staging`, which points Kafka to `localhost:9092`, file service to `http://localhost:8091`, and disables integration existence checks in the shared gateway starter.
+Local development can use `local-staging`, which points Kafka to `localhost:9092` (start it with `docker compose up -d`; add `--profile tools` for Kafdrop on http://localhost:19000), file service to `http://localhost:8091`, and disables integration existence checks in the shared gateway starter.
 
 ## Build And Run
 
