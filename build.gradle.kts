@@ -74,7 +74,7 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 
-    implementation("no.novari:flyt-gateway-starter:4.2.0")
+    implementation("no.novari:flyt-gateway-starter:4.3.0")
 
     runtimeOnly("io.micrometer:micrometer-registry-prometheus")
     // Pinned to 8.x: 9.x pulls in Jackson 3 (tools.jackson), while Spring Boot 3.5 uses Jackson 2
