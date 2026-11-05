@@ -44,8 +44,8 @@ spec:
     startup:
       path: /actuator/health
       port: 8080
-      initialDelaySeconds: 120
-      failureThreshold: 12
+      initialDelaySeconds: 0
+      failureThreshold: 24
       periodSeconds: 10
       timeoutSeconds: 3
     readiness:
