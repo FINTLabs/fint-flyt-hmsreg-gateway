@@ -80,3 +80,4 @@ The build uses [Gradle dependency locking](https://docs.gradle.org/current/userg
 ```
 
 Commit the updated lockfiles together with the change. If you forget, the build fails both locally and in CI with an error saying the resolved version "is not part of the dependency lock state".
+
