@@ -23,6 +23,8 @@ The application includes these Spring profiles by default:
 
 Local development can use `local-staging`, which points Kafka to `localhost:9092` (start it with `docker compose up -d`; add `--profile tools` for Kafdrop on http://localhost:19000), file service to `http://localhost:8091`, and disables integration existence checks in the shared gateway starter.
 
+API calls are authorized against `fint-flyt-authorization-service` on `http://localhost:8086`, and the status endpoint looks up the archive instance ID in `fint-flyt-history-service` on `http://localhost:8083`. Run both locally. The gateway gets its token for these calls from NAM, so set `FINT_FLYT_AUTHORIZATION_SSO_CLIENT_ID` and `FINT_FLYT_AUTHORIZATION_SSO_CLIENT_SECRET` to `fint-flyt-authorization-oauth2-client` from a beta namespace, and start both services with `fint.flyt.authorization.sso.client-id` set to the same client ID so the token is accepted.
+
 ## Build And Run
 
 Requirements:
